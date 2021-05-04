@@ -62,6 +62,7 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
 #include "../system/config_bits.h"
 #include "../system/clock.h"
 #include "../system/pins.h"
+#include "../adc/adcc.h"
 #include "../timer/tmr1.h"
 #include "../uart/uart1.h"
 #include "../system/interrupt.h"

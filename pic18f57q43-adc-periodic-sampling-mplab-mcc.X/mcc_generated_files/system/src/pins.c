@@ -126,6 +126,7 @@ void PIN_MANAGER_Initialize(void)
     /**
     PPS registers
     */
+    ADACTPPS = 0xC; //RB4->ADCC:ADACT;
     U1CTSPPS = 0x16; //RC6->UART1:U1CTS;
     U1RXPPS = 0x29; //RF1->UART1:U1RX;
     T1CKIPPS = 0x10; //RC0->TMR1:T1CKI;

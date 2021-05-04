@@ -30,20 +30,23 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
     this notice or applicable license.  To the extent the terms of such 
     third party licenses prohibit any of the restrictions described here, 
     such restrictions will not apply to such third party software.
-*/
+ */
 #include "mcc_generated_files/system/system.h"
 
 /*
     Main application
-*/
+ */
 
-int main(void)
-{
-    INTCON0bits.GIE = 1; // Enable Global Interrupts
+
+int main(void) {
     SYSTEM_Initialize();
-    Timer1_Start();
+    INTCON0bits.GIE = 1; // Enable Global Interrupts;
+    ADPCH = POT; // Set ADCC Positive Channel to POT;
+    Timer1_Start(); // Start Timer1;
 
-    while(1)
-    {
-    }    
+    while (1) {
+        while (ADCON0bits.ADGO); // wait while ADGO bit is set; 
+        printf("ADC Result %d \r\n", ADCC_GetFilterValue());
+        while (!ADCON0bits.ADGO);
+    }
 }
