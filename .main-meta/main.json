@@ -4,10 +4,10 @@
     "content": {
         "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f57q43-adc-periodic-sampling-mplab-mcc",
-        "version": " ",
-        "displayName": "PIC18F57Q43 adc periodic sampling mplab mcc",
+        "version": "1.1.0",
+        "displayName": "Timer Triggered ADC sampling",
         "projectName": "pic18f57q43-adc-periodic-sampling-mplab-mcc",
-        "shortDescription": "This example showcases the periodic ADC conversion using a timer as a trigger",
+        "shortDescription": "This example shows how to configure the Analog-to-Digital Converter (ADC) to trigger a conversion on a specific event. The Timer overflow is used to trigger the ADC Burst Average Conversion and ADC result is transmitted through UART.",
         "ide": {
             "name": "MPLAB X",
             "semverRange": ">=5.45.0"
@@ -19,12 +19,12 @@
             }
         ],
         "dfp": {
-            "name": "",
-            "semverRange": ""
+            "name": "PIC18F-Q_DFP",
+            "semverRange": "^1.9.175"
         },
         "configurator": {
-            "name": "",
-            "semverRange": ""
+            "name": "MCC",
+            "semverRange": ">=4.1.0"
         },
         "device": {
             "metaDataVersion": "1.0.0",
@@ -36,11 +36,35 @@
                 "versionRange": "*"
             }
         },
-        "author": "Ashish Makthal",
-        "subcategories": [],
-        "peripherals": [],
-        "keywords": [],
-        "additionalData": {
+        "author": "Microchip",
+        "subcategories": [
+          "MCC",
+          [
+              "Peripherals",
+              "ADCC"
+          ],
+          [
+              "Peripherals",
+              "TMR"
+          ],
+          [
+              "Peripherals",
+              "UART"
+          ]
+        ],
+         "peripherals": [
+          "ADCC",
+          "TMR",
+          "UART"
+        ],
+        "keywords": [
+          "Curiosity Nano",
+          "ADCC",
+          "MCC",
+          "UART",
+		  "TMR",
+          "Melody"
+        ],        "additionalData": {
             "longDescription": {
                 "metaDataVersion": "1.0.0",
                 "category": "com.microchip.portal.fileRef",
