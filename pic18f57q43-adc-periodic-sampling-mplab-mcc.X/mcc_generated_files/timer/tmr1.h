@@ -285,23 +285,6 @@ void Timer1_StartSinglePulseAcquisition(void);
 */
 uint8_t Timer1_CheckGateValueStatus(void);
 
-/**
-  @Summary
-    Timer Interrupt Service Routine
-
-  @Description
-    Timer Interrupt Service Routine is called by the Interrupt Manager.
-
-  @Preconditions
-    Initialize  the TMR1 module with interrupt before calling this ISR.
-
-  @Param
-    None
-
-  @Returns
-    None
-*/
-void Timer1_OverflowISR(void);
 
 /**
  * @brief Setter function for Timer overflow Callback.
@@ -329,6 +312,26 @@ void Timer1_OverflowISR(void);
  */
  void Timer1_OverflowCallbackRegister(void (* CallbackHandler)(void));
 
+/**
+ * @brief This function performs tasks to be executed on timer overflow event
+ * @param void
+ * @return void
+ *
+ * @code
+ * void main(void)
+ * {
+ *     Timer1_Initialize();
+ *     //Start timer if it is not already started
+ *     Timer1_Start();
+ *
+ *     while(1)
+ *     {
+ *         Timer1_Tasks();
+ *     }
+ * }
+ * @endcode
+ */
+void Timer1_Tasks(void);
 
 /**
   @Summary

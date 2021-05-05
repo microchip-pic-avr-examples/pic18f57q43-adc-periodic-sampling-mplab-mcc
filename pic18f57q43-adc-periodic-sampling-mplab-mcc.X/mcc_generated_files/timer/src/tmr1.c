@@ -71,7 +71,7 @@ const struct TMR_INTERFACE Timer1 = {
     .Stop = Timer1_Stop,
     .PeriodCountSet = Timer1_Write,
     .TimeoutCallbackRegister = Timer1_OverflowCallbackRegister,
-    .Tasks = NULL
+    .Tasks = Timer1_Tasks
 };
 static void (*Timer1_OverflowCallback)(void);
 static void Timer1_DefaultOverflowCallback(void);
@@ -85,10 +85,10 @@ void Timer1_Initialize(void)
     T1GATE = 0x0;
     //TMRCS MFINTOSC_31.25kHz; 
     T1CLK = 0x6;
-    //TMRH 133; 
-    TMR1H = 0x85;
-    //TMRL 238; 
-    TMR1L = 0xEE;
+    //TMRH 194; 
+    TMR1H = 0xC2;
+    //TMRL 247; 
+    TMR1L = 0xF7;
 
     // Load the TMR1 value to reload variable
     timer1ReloadVal=(uint16_t)((TMR1H << 8) | TMR1L);
@@ -96,11 +96,9 @@ void Timer1_Initialize(void)
     //Set default callback for TMR1 overflow interrupt
     Timer1_OverflowCallbackRegister(Timer1_DefaultOverflowCallback);
 
-        // Clearing TMRI IF flag before enabling the interrupt.
-         PIR3bits.TMR1IF = 0;
-        // Enabling TMRI interrupt.
-         PIE3bits.TMR1IE = 1;
-
+    //Clear interrupt flags
+    PIR3bits.TMR1IF = 0;
+    PIR3bits.TMR1GIF = 0;
     
     //TMRON disabled; TRD16 disabled; nTSYNC do_not_synchronize; TCKPS 1:1; 
     T1CON = 0x4;
@@ -170,18 +168,6 @@ uint8_t Timer1_CheckGateValueStatus(void)
     return (T1GCONbits.T1GVAL);
 }
 
-void Timer1_OverflowISR(void)
-{
-
-    // Clear the TMR1 interrupt flag
-    PIR3bits.TMR1IF = 0;
-    Timer1_Write(timer1ReloadVal);
-
-    if(Timer1_OverflowCallback)
-    {
-        Timer1_OverflowCallback();
-    }
-}
 
 void Timer1_OverflowCallbackRegister(void (* CallbackHandler)(void))
 {
@@ -205,6 +191,14 @@ void Timer1_GateISR(void)
     PIR3bits.TMR1GIF = 0;
 }
 
+void Timer1_Tasks(void)
+{
+    if(PIR3bits.TMR1IF)
+    {
+        PIR3bits.TMR1IF = 0;
+        Timer1_OverflowCallback();
+    }
+}
 
 /**
   End of File

@@ -96,9 +96,9 @@ void  INTERRUPT_Initialize (void)
 void __interrupt() INTERRUPT_InterruptManager (void)
 {
     // interrupt handler
-    if(PIE3bits.TMR1IE == 1 && PIR3bits.TMR1IF == 1)
+    if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
     {
-        Timer1_OverflowISR();
+        ADCC_ISR();
     }
     else
     {

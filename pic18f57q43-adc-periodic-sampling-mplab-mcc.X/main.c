@@ -40,12 +40,11 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
 
 int main(void) {
     SYSTEM_Initialize();
-    INTCON0bits.GIE = 1; // Enable Global Interrupts;
-    ADPCH = POT; // Set ADCC Positive Channel to POT;
-    Timer1_Start(); // Start Timer1 (ADC AutoConversion Trigger)
+    ADPCH = POT; // Set ADC Positive Channel to POT (RC2);
+    Timer1_Start(); // Start Timer1 (ADC AutoConversion Trigger);
 
     while (1) {
-        // Timer1 Overflow will trigger ADC conversion by setting ADGO;
+        // Timer1 Overflow will trigger ADC conversion by setting ADGO in hardware; 
         while (ADCON0bits.ADGO); // Wait here while ADC conversion and calculation is in progress;
         printf("ADC Result %d \r\n", ADCC_GetFilterValue());
         while (!ADCON0bits.ADGO); // Wait here until Timer1 triggers ADGO again;
