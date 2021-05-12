@@ -2,12 +2,12 @@
     "metaDataVersion": "1.0.0",
     "category": "com.microchip.ide.project",
     "content": {
-        "metaDataVersion": "1.1.0",
+        "metaDataVersion": "1.0.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f57q43-adc-periodic-sampling-mplab-mcc",
-        "version": "1.1.0",
+        "version": "1.0.0",
         "displayName": "Timer Triggered ADC sampling",
         "projectName": "pic18f57q43-adc-periodic-sampling-mplab-mcc",
-        "shortDescription": "This example shows how to configure the Analog-to-Digital Converter (ADC) to trigger a conversion on a specific event. The Timer overflow is used to trigger the ADC Burst Average Conversion and ADC result is transmitted through UART.",
+        "shortDescription": "This example shows how to configure the Analog-to-Digital Converter (ADC) to trigger a conversion on a specific event. The Timer overflow is used to trigger the ADC Burst Average Conversion and ADC result is transmitted through UART. Works with MPLAB X or MPLAB XPRESS IDE.",
         "ide": {
             "name": "MPLAB X",
             "semverRange": ">=5.45.0"
@@ -36,7 +36,7 @@
                 "versionRange": "*"
             }
         },
-        "author": "Microchip",
+        "author": "Jason Layton",
         "subcategories": [
           "MCC",
           [
@@ -45,7 +45,7 @@
           ],
           [
               "Peripherals",
-              "TMR"
+              "TMR1"
           ],
           [
               "Peripherals",
@@ -54,7 +54,7 @@
         ],
          "peripherals": [
           "ADCC",
-          "TMR",
+          "TMR1",
           "UART"
         ],
         "keywords": [
@@ -62,7 +62,7 @@
           "ADCC",
           "MCC",
           "UART",
-		  "TMR",
+		  "TMR1",
           "Melody"
         ],        "additionalData": {
             "longDescription": {
