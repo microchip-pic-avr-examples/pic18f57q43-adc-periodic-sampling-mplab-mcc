@@ -2,7 +2,7 @@
     "metaDataVersion": "1.0.0",
     "category": "com.microchip.ide.project",
     "content": {
-        "metaDataVersion": "1.0.0",
+        "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f57q43-adc-periodic-sampling-mplab-mcc",
         "version": "1.0.0",
         "displayName": "Timer Triggered ADC sampling",
@@ -62,7 +62,7 @@
           "ADCC",
           "MCC",
           "UART",
-		  "TMR1",
+		  "TMR",
           "Melody"
         ],        "additionalData": {
             "longDescription": {
