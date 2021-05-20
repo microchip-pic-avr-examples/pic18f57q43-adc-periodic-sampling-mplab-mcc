@@ -6,6 +6,7 @@ The "pic18f57q43-adc-periodic-sampling-mplab-mcc" project demonstrates how to us
 
 ## Software Used:
   - [MPLAB® X IDE 5.45](http://www.microchip.com/mplab/mplab-x-ide) or newer
+  - [MPLAB® Xpress IDE](https://www.microchip.com/xpress) (alternative to MPLAB X IDE)
   - [MPLAB® XC8 2.31 Compiler](microchip.com/mplab/compilers) or newer
   - [MPLAB® Code Configurator (MCC) 4.1.0](microchip.com/mplab/mplab-code-configurator) or newer
   - [MPLAB® Melody Library 1.37.25](https://www.microchip.com/en-us/development-tools-tools-and-software/embedded-software-center/mplab-code-configurator) or newer
